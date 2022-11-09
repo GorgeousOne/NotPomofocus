@@ -1,0 +1,40 @@
+#settings-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#settings-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: #FFFFFF;
+
+	margin: 3em auto;
+	padding: 2em;
+	width: 40%;
+	border-radius: 0.4em;
+}
+
+.input-fat {
+	margin: 1em 0 0;
+	padding: 0.5em 1em;
+	border: 0;
+	border-radius: 0.2em;
+	background-color: rgb(240, 240, 240);
+	outline: none;
+}
+
+#settings-btn {
+	width: 55px;
+	background: rgb(240, 240, 240) url("icons/gear-icon-dark.png") no-repeat center;
+	background-size: 32px 32px;
+}
+
+.settings-section {
+	border-bottom: 1px;
+	border-color: gray;
+}

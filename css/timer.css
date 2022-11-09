@@ -1,0 +1,59 @@
+
+@font-face {
+	font-family: "Yo Mama";
+	src: url("fonts/arial-mt-bold.TTF");
+}
+
+body {
+	font-family: "Yo Mama", sans-serif;
+	margin: 0;
+	padding: 0;
+
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+
+#time-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transform: translate(0, -20%);
+}
+
+#timer-string {
+	font-weight: bold;
+	font-size: 120px;
+}
+
+#btn-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.button-fat {
+	font-family: "Yo Mama", sans-serif;
+	font-size: 22px;
+	margin: 1em 0 0;
+	padding: 0.5em 1em;
+	border: 0;
+	border-radius: 0.2em;
+	background-color: rgb(240, 240, 240);
+	box-shadow: rgb(220, 220, 220) 0 .3em 0;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.button-fat:active {
+	transform: translate(0, .3em);
+	box-shadow: none;
+}
+
+#timer-btn {
+	width: 200px;
+}
+
+
+
