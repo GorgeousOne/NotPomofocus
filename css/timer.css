@@ -29,7 +29,7 @@ body {
 #btn-container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	/*align-items: center;*/
 	gap: 10px;
 }
 
@@ -54,6 +54,16 @@ body {
 #timer-btn {
 	width: 200px;
 }
+#reset-btn {
+	width: 55px;
+	background: rgb(240, 240, 240) url("icons/reset-icon-dark.png") no-repeat center;
+	background-size: 32px 32px;
+}
 
+#settings-btn {
+	width: 55px;
+	background: rgb(240, 240, 240) url("icons/gear-icon-dark.png") no-repeat center;
+	background-size: 32px 32px;
+}
 
 
