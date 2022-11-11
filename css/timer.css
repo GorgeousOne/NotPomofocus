@@ -8,62 +8,82 @@ body {
 	font-family: "Yo Mama", sans-serif;
 	margin: 0;
 	padding: 0;
-
 	display: grid;
 	place-items: center;
 	height: 100vh;
+	overflow: hidden;
 }
 
 #time-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	transform: translate(0, -20%);
 }
 
 #timer-string {
 	font-weight: bold;
-	font-size: 120px;
 }
 
 #btn-container {
 	display: flex;
 	justify-content: center;
-	/*align-items: center;*/
-	gap: 10px;
+	align-items: center;
 }
 
 .button-fat {
 	font-family: "Yo Mama", sans-serif;
-	font-size: 22px;
-	margin: 1em 0 0;
-	padding: 0.5em 1em;
-	border: 0;
-	border-radius: 0.2em;
-	background-color: rgb(240, 240, 240);
-	box-shadow: rgb(220, 220, 220) 0 .3em 0;
 	cursor: pointer;
 	text-transform: uppercase;
+
+	background-color: rgb(240, 240, 240);
 }
 
 .button-fat:active {
-	transform: translate(0, .3em);
 	box-shadow: none;
 }
 
-#timer-btn {
-	width: 200px;
-}
 #reset-btn {
-	width: 55px;
 	background: rgb(240, 240, 240) url("icons/reset-icon-dark.png") no-repeat center;
-	background-size: 32px 32px;
 }
 
 #settings-btn {
-	width: 55px;
 	background: rgb(240, 240, 240) url("icons/gear-icon-dark.png") no-repeat center;
-	background-size: 32px 32px;
 }
 
+@media (min-width: 500px) {
+	#timer-string {
+		font-size: 15rem;
+	}
 
+	#btn-container {
+		gap: 1rem;
+	}
+
+	.button-fat {
+		width: 8rem;
+		font-size: 5rem;
+		margin: 1rem 0 0 0;
+		padding: 1rem 2.5rem;
+		border: 0;
+		border-radius: .75rem;
+		box-shadow: rgb(220, 220, 220) 0 1rem 0;
+	}
+
+	.button-fat:active {
+		transform: translate(0, 1rem);
+	}
+
+	#timer-btn {
+		width: 20rem;
+	}
+
+	#reset-btn {
+		background-size: 5rem;
+	}
+
+	#settings-btn {
+		background-size: 5rem;
+	}
+}
