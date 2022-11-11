@@ -4,14 +4,18 @@
 	src: url("fonts/arial-mt-bold.TTF");
 }
 
-body {
-	font-family: "Yo Mama", sans-serif;
+html, body {
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
+	height: 100vh;
+	height: -webkit-fill-available;
+}
+
+body {
+	font-family: "Yo Mama", sans-serif;
 	display: grid;
 	place-items: center;
-	height: 100vh;
-	overflow: hidden;
 }
 
 #time-container {
