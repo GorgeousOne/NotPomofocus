@@ -1,3 +1,4 @@
+
 #settings-overlay {
 	position: absolute;
 	top: 0;
@@ -12,30 +13,58 @@
 	display: flex;
 	flex-direction: column;
 	background-color: #FFFFFF;
-
-	margin: 3em auto;
-	padding: 2em;
-	width: 40%;
-	border-radius: 0.4em;
 }
 
-#settings-container:not(:last-child) {
+#settings-container .settings-section:not(:last-child) {
 	border-bottom: 1px solid;
-	border-bottom-color: gray;
-	padding: 2em;
-	background-color: aqua;
+	border-bottom-color: darkgrey;
 }
 
 .input-fat {
 	font-family: "Yo Mama", sans-serif;
-	margin: 1em 0 0;
-	padding: 0.5em 1em;
-	border: 0;
-	border-radius: 0.2em;
 	background-color: rgb(240, 240, 240);
 	outline: none;
 }
 
+#settings-header {
+	text-transform: uppercase;
+	color: darkgray;
+}
+
 input[type=number]::-webkit-inner-spin-button {
-	opacity: 1
+	opacity: 1;
+}
+
+@media (min-width: 500px) {
+	#settings-container {
+		width: 100%;
+		margin: 3em 3rem;
+		padding: 4rem 5rem;
+		border-radius: 0.4rem;
+	}
+
+	.settings-section {
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+	}
+
+	#settings-container .settings-section:not(:first-child) {
+		padding-top: 1.5rem;
+	}
+
+	#settings-container .settings-section:not(:last-child) {
+		padding-bottom: 2rem;
+	}
+
+	.settings-text {
+		font-size: 2.5rem;
+	}
+
+	.input-fat {
+		margin: 1rem 0 0;
+		padding: 0.5rem 1rem;
+		border: 0;
+		border-radius: .5rem;
+	}
 }
