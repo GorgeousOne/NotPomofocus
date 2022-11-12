@@ -20,10 +20,11 @@ let isTimerRunning = false;
 
 setTimerDuration(25 * 60);
 
-settingsBtn.addEventListener("click", openSettings);
-settingsBtn.addEventListener("touchstart", openSettings);
+settingsBtn.addEventListener("click", (event) => openSettings(event));
+settingsBtn.addEventListener("touchstart", (event) => openSettings(event));
 
-function openSettings() {
+function openSettings(event) {
+	event.preventDefault();
 	settingsOverlay.style.display = "flex";
 }
 
@@ -34,10 +35,12 @@ settingsOverlay.addEventListener("mousedown", (event) => {
 	settingsOverlay.style.display = "none";
 });
 
-timerButton.addEventListener("click", toggleTimer);
-timerButton.addEventListener("touchstart", toggleTimer);
+timerButton.addEventListener("click", (event) => toggleTimer(event));
+timerButton.addEventListener("touchstart", (event) => toggleTimer(event));
 
-function toggleTimer() {
+function toggleTimer(event) {
+	event.preventDefault();
+
 	if (isTimerRunning) {
 		pauseTimer();
 	} else {
@@ -45,10 +48,11 @@ function toggleTimer() {
 	}
 }
 
-resetButton.addEventListener("click", resetTimer);
-resetButton.addEventListener("touchstart", resetTimer);
+resetButton.addEventListener("click", (event) => resetTimer(event));
+resetButton.addEventListener("touchstart", (event) => resetTimer(event));
 
-function resetTimer() {
+function resetTimer(event) {
+	event.preventDefault();
 	pauseTimer();
 	setTimerDuration(totalSeconds);
 }
