@@ -1,41 +1,57 @@
+// const appHeight = () => {
+// 	const doc = document.documentElement
+// 	doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+// }
+// window.addEventListener('resize', appHeight)
+// appHeight()
 
 let clockFace = document.getElementById("clock-face");
 let timerButton = document.getElementById("timer-btn");
 let resetButton = document.getElementById("reset-btn");
 let settingsBtn = document.getElementById("settings-btn");
-let settingsOverlay = document.getElementById("settings-overlay");
 
-let totalSeconds = 10;
-let currentSeconds = totalSeconds;
+let settingsOverlay = document.getElementById("settings-overlay");
+let minuteInput = document.getElementById("minute-input");
+
+let totalSeconds;
+let currentSeconds;
 let timerEnd;
 let isTimerRunning = false;
 
-updateClockFace(currentSeconds);
+setTimerDuration(25 * 60);
 
-settingsBtn.addEventListener("click", function() {
+settingsBtn.addEventListener("click", openSettings);
+settingsBtn.addEventListener("touchstart", openSettings);
+
+function openSettings() {
 	settingsOverlay.style.display = "flex";
-});
+}
 
-settingsOverlay.addEventListener("mousedown", function(event) {
-	if (event.target !== this) {
+settingsOverlay.addEventListener("mousedown", (event) => {
+	if (event.target !== settingsOverlay) {
 		return;
 	}
 	settingsOverlay.style.display = "none";
 });
 
-timerButton.addEventListener("click", function() {
+timerButton.addEventListener("click", toggleTimer);
+timerButton.addEventListener("touchstart", toggleTimer);
+
+function toggleTimer() {
 	if (isTimerRunning) {
 		pauseTimer();
 	} else {
 		startTimer();
 	}
-});
+}
 
-resetButton.addEventListener("click", function () {
-	pauseTimer()
-	currentSeconds = totalSeconds;
-	updateClockFace();
-});
+resetButton.addEventListener("click", resetTimer);
+resetButton.addEventListener("touchstart", resetTimer);
+
+function resetTimer() {
+	pauseTimer();
+	setTimerDuration(totalSeconds);
+}
 
 function updateClockFace() {
 	clockFace.innerText =
@@ -51,6 +67,7 @@ function startTimer()  {
 	if (currentSeconds === 0) {
 		currentSeconds = totalSeconds;
 	}
+	timerEnd = new Date(Date.now() + currentSeconds * 1000);
 	updateClockFace();
 	runTimer();
 }
@@ -65,9 +82,18 @@ function notifyTimerEnd() {
 	pauseTimer();
 }
 
-async function runTimer() {
-	timerEnd = new Date(Date.now() + currentSeconds * 1000);
+function setTimerDuration(newTotalSeconds, newCurrentSeconds=newTotalSeconds) {
+	totalSeconds = newTotalSeconds;
+	currentSeconds = newCurrentSeconds;
+	minuteInput.value = parseFloat((totalSeconds / 60).toFixed(3));
 
+	if (isTimerRunning) {
+		timerEnd = new Date(Date.now() + currentSeconds * 1000);
+	}
+	updateClockFace();
+}
+
+async function runTimer() {
 	while (currentSeconds > 0) {
 		let remainingTime = getRemainingTime();
 		let nextInterval = remainingTime - Math.round(remainingTime - 1);
