@@ -12,10 +12,18 @@ html, body {
 	height: -webkit-fill-available;
 }
 
+.theme {
+	--color-primary: #49936b;
+	--color-secondary: #E0E0E0;
+	--color-accent: #DCDCDC;
+	/*--font-color: #16161D;*/
+	--font-color: #FFFFFF;
+}
 body {
 	font-family: "Yo Mama", sans-serif;
 	display: grid;
 	place-items: center;
+	background-color: var(--color-primary);
 }
 
 #time-container {
@@ -27,6 +35,7 @@ body {
 }
 
 #clock-face {
+	color: var(--color-secondary);
 	font-weight: bold;
 }
 
@@ -40,15 +49,16 @@ body {
 	font-family: "Yo Mama", sans-serif;
 	cursor: pointer;
 	text-transform: uppercase;
-	background-color: rgb(240, 240, 240);
+	background-color: var(--color-secondary);
+	color: var(--color-primary);
 }
 
 #reset-btn {
-	background: rgb(240, 240, 240) url("icons/reset-icon-dark.png") no-repeat center;
+	background: var(--color-secondary) url("icons/reset-icon-dark.png") no-repeat center;
 }
 
 #settings-btn {
-	background: rgb(240, 240, 240) url("icons/gear-icon-dark.png") no-repeat center;
+	background: var(--color-secondary) url("icons/gear-icon-dark.png") no-repeat center;
 }
 
 @media (min-width: 500px) {
@@ -67,7 +77,7 @@ body {
 		padding: 1rem 2.5rem;
 		border: 0;
 		border-radius: .75rem;
-		box-shadow: rgb(220, 220, 220) 0 1rem 0;
+		box-shadow: var(--color-accent) 0 1rem 0;
 	}
 
 	.button-fat:active, .toggled {
